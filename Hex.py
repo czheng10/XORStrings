@@ -26,11 +26,14 @@ if (klen < len(inp)):
 def humanf(key, inp):
     outp = ""
     for i in range(len(inp)):
-        outp = outp + chr((ord(key[i])^ord(inp[i])))
+        outp = outp + chr((ord(key[i])^(ord(inp[i]))))
     return outp
     
 def numOutf(key, inp):
-    return ""
+    outp = ""
+    for i in range(len(inp)):
+        outp = outp + hex((ord(key[i])^(ord(inp[i]))))[2:] + " "
+    return outp
 
 if (mode=="human"):
     print(humanf(key,inp))
